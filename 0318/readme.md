@@ -20,6 +20,11 @@ npm run build 명령어를 실행해 수정한 파일들을 바탕으로 product
 <b>3. serve 웹서버의 document root 지정</b><br>
 serve라는 이름의 웹서버가 동작될 때 build폴더를 document root로 지정하여 실행되도록 serve -s build 명령어를 실행한다.<br>
 
+<img width="243" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/27c57d11-9d8b-49ea-bfb4-b696c77a5807"><br>
+<b>4. 깃허브 레포지토리 업로드(웹호스팅 작업)</b><br>
+내 깃허브 레포지토리에 build 폴더를 업로드하여 깃허브 웹호스팅 서비스로 내 웹호스팅 페이지에 접속했을 때,<br>
+다른 웹페이지들과 마찬가지로 외부에서 접근이 가능하도록 작업한다.<br>
+
 <hr>
 <h3><b>[결과물]</b></h3>
 <b>기존 React App 페이지</b><br>
