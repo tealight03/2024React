@@ -10,7 +10,7 @@ React App을 실행하면 등장하는 기본 웹페이지(index.html)의<br>
 <img width="794" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/e43f9104-4684-42c3-826e-bc06f2d306b3"><br>
 <b>1. App.js 파일에서 App() 함수 일부 수정</b><br>
 anchor 태그의 href 속성에 "https://tealight03.github.io/2024React/", <br>
-내부 텍스트로 콘텐츠로 "Welcome to React World!!!"라는 데이터로 코드를 수정한다.<br><br>
+내부 텍스트 콘텐츠로 "Welcome to React World!!!"라는 데이터로 코드를 수정한다.<br><br>
 
 <img width="650" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/2b1e25ad-216a-4265-8eb8-12a9ee7e375c"><br>
 <b>2. production build 새로 생성</b><br>
