@@ -10,7 +10,7 @@ React App을 실행하면 등장하는 기본 웹페이지(index.html)의<br>
 <img width="794" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/e43f9104-4684-42c3-826e-bc06f2d306b3"><br>
 <b>1. App.js 파일에서 App() 함수 일부 수정</b><br>
 anchor 태그의 href 속성에 "https://tealight03.github.io/2024React/", <br>
-내부 텍스트로 콘텐츠로 "Welcome to React World!!!"라는 데이터로 코드를 수정한다.<br><br>
+내부 텍스트 콘텐츠로 "Welcome to React World!!!"라는 데이터로 코드를 수정한다.<br><br>
 
 <img width="650" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/2b1e25ad-216a-4265-8eb8-12a9ee7e375c"><br>
 <b>2. production build 새로 생성</b><br>
@@ -18,7 +18,12 @@ npm run build 명령어를 실행해 수정한 파일들을 바탕으로 product
 
 <img width="742" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/91a71f45-4b11-4c44-9d60-2e2d69acf253"><br>
 <b>3. serve 웹서버의 document root 지정</b><br>
-serve라는 이름의 웹서버가 동작될 때 build폴더를 document root로 지정하여 실행되도록 serve -s build 명령어를 실행한다.<br>
+serve라는 이름의 웹서버가 동작될 때 build폴더를 document root로 지정하여 실행되도록 serve -s build 명령어를 실행한다.<br><br>
+
+<img width="243" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/27c57d11-9d8b-49ea-bfb4-b696c77a5807"><br>
+<b>4. 깃허브 레포지토리 업로드(웹호스팅 작업)</b><br>
+내 깃허브 레포지토리에 build 폴더를 업로드하여 깃허브 웹호스팅 서비스로 내 웹호스팅 페이지에 접속했을 때,<br>
+다른 웹페이지들과 마찬가지로 외부에서 접근이 가능하도록 작업한다.<br>
 
 <hr>
 <h3><b>[결과물]</b></h3>
