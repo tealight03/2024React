@@ -23,9 +23,15 @@
         button {
             margin-left: 20px; /* 원하는 왼쪽 갭 값으로 설정 */
         }
+        .container {
+            display: flex;
+        }
         .max-w-sm {
-            margin-left: 20px; 
-            margin-top: 20px; 
+            flex: 1; /* 같은 너비로 콘텐츠를 배치 */
+            margin-right: 20px; /* 간격을 최소화하기 위한 작은 마진 설정 */
+        }
+        .max-w-sm:last-child {
+            margin-right: 0; /* 마지막 콘텐츠의 오른쪽 마진을 없애고 붙도록 설정 */
         }
     </style>
 </head>
@@ -37,21 +43,57 @@
         Still making presents..
     </button>   
     
+    <div class="container">
+        <!--0311 발표-->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Python Web Framework Flask</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <b>2024.03.11</b><br>
+                프레임워크와 라이브러리의 차이를 이해하고 파이썬의 대표적인 웹 프레임워크인 "Flask"를 이용하여 경량 웹서버를 구축하는 방법에 대해 알아봅니다.
+            </p>
+            <a href="./presentations/[웹프로그래밍응용] Flask-2022564004 김다빈.pptx" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+        </div>
 
-    <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Python Web Framework Flask</h5>
-        </a>
-        <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            <b>2024.03.11</b><br>
-            프레임워크와 라이브러리의 차이를 이해하고 파이썬의 대표적인 웹 프레임워크인 "Flask"를 이용하여 경량 웹서버를 구축하는 방법에 대해 알아봅니다.
-        </p>
-        <a href="./presentations/[웹프로그래밍응용] Flask-2022564004 김다빈.pptx" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Read more
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-            </svg>
-        </a>
+        <!--0325 발표-->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Git & SourceTree</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <b>2024.03.26</b><br>
+                Git, SourceTree를 설치하고 git 명령어를<br>GUI 환경에서 다루는 방법에 대해 알아봅시다.
+            </p>
+            <a href="./presentations/[웹프로그래밍응용] Flask-2022564004 김다빈.pptx" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+        </div>
+
+        <!--0401 발표-->
+        <div class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <a href="#">
+                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Javascript Memory Model</h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <b>2024.04.01</b><br>
+                Javascript의 메모리 모델에 대해 알아봅시다.
+            </p>
+            <a href="./presentations/[웹프로그래밍응용] Flask-2022564004 김다빈.pptx" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                will be uploaded
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                </svg>
+            </a>
+        </div>
     </div>
     
 
