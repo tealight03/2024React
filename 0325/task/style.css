@@ -40,17 +40,6 @@ th, td {
     font-size: 16px;
 }
 
-#myname th {
-    display: none;
-}
-
-#myname td {
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
 #resume ol {
     list-style: none;
     padding: 0;
