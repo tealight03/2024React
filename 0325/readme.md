@@ -12,3 +12,6 @@
 실행화면
 
 # 웹프로그래밍응용 4주차 과제(03/25)
+
+### Figma로 SPA 웹디자인 기획
+<img width="848" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/278c0ea0-f5a4-4e01-bb3b-13be69c9a837"><br>
