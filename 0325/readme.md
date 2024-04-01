@@ -386,3 +386,12 @@ th, td {
 
 ### Figma로 SPA 웹디자인 기획
 <img width="848" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/278c0ea0-f5a4-4e01-bb3b-13be69c9a837"><br>
+<img width="785" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/7966508e-c9e6-4335-87a1-4503b2cca0fa"><br>
+
+<b>[웹디자인 구상 내용]</b><br>
+<p>
+  html, javascript, jsx로 제작한 웹페이지를 조금 수정하여 SPA 형식의 웹디자인을 기획하였습니다.<br>
+  각 탭을 클릭하면 탭에 따른 내부 콘텐츠가 조금씩 달라지도록 SPA 형식을 구상하여 위와 같이 디자인하였습니다.<br>
+  아래의 링크를 클릭하시면 바로 테스트 해보실 수 있습니다.<br>
+</p>
+<a href="https://www.figma.com/file/sVFDujYdQl3dTuoVFvh15f/MyPortpolio?type=design&node-id=0%3A1&mode=design&t=lni5ZyZvj3mIZO9H-1" target="_blank"><b>Click here to move!</b></a>
