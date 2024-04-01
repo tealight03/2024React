@@ -1,6 +1,10 @@
 # 2024.04.01 강의 실습 정리(5주차)
+<b>시계 실습</b><br>
+<img width="489" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/6fc4311f-0250-47fb-81bd-d216d6031967"><br>
+-> jsClock.html
 
 <b>Function Component 실습</b><br>
+※ 단축키 => rsf<br>
 <img width="371" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/d3ab08ef-4615-47c3-8179-116004e0f41b"><br>
 -> Header.js
 
@@ -17,8 +21,8 @@
 -> 실행 화면
 
 <hr>
-<b>Class Component 실습</b><br><br>
-
+<b>Class Component 실습</b><br>
+※ 단축키 => rcc<br>
 <img width="482" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/7c824607-15eb-40fb-a25c-9fe89966196e"><br>
 -> Header.js
 
