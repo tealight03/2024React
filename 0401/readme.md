@@ -4,7 +4,7 @@
 -> jsClock.html
 
 <b>Function Component 실습</b><br>
-※ 단축키 => rsf
+※ 단축키 => rsf<br>
 <img width="371" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/d3ab08ef-4615-47c3-8179-116004e0f41b"><br>
 -> Header.js
 
@@ -21,8 +21,8 @@
 -> 실행 화면
 
 <hr>
-<b>Class Component 실습</b><br><br>
-※ 단축키 => rcc
+<b>Class Component 실습</b><br>
+※ 단축키 => rcc<br>
 <img width="482" alt="image" src="https://github.com/tealight03/2024React/assets/138011998/7c824607-15eb-40fb-a25c-9fe89966196e"><br>
 -> Header.js
 
