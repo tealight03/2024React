@@ -26,11 +26,14 @@
         }
         .container {
             display: flex;
+            margin-left: 10px;
         }
         .max-w-sm {
             flex: 1; /* 같은 너비로 콘텐츠를 배치 */
-            margin-left: -90px;
-            margin-right: 120px; /* 간격을 최소화하기 위한 작은 마진 설정 */
+            margin-right: 50px; /* 간격을 최소화하기 위한 작은 마진 설정 */
+        }
+        .max-w-sm:not(:first-child) {
+            margin-left: 20px; /* 첫 번째 콘텐츠를 제외한 나머지 콘텐츠에 왼쪽 마진 설정 */
         }
         .max-w-sm:last-child {
             margin-right: 0; /* 마지막 콘텐츠의 오른쪽 마진을 없애고 붙도록 설정 */
@@ -95,7 +98,7 @@
                 가비지 컬렉션을 이용하여 할당한 메모리를<br>
                 해제하는 과정에 대해 알아봅니다.
             </p>
-            <a href="./presentations/[웹프로그래밍응용] Flask-2022564004 김다빈.pptx" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <a href="./presentations/[웹프로그래밍응용] Javascript Memory Model-2022564004 김다빈.pptx" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                 Read more
                 <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
