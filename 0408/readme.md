@@ -121,6 +121,8 @@ export default Counter;
 <b>수정된 Counter.js</b><br>
 이제 state를 이용하여 state가 변경되었을 때 올바르게 화면이 리렌더링되는 것을 확인할 수 있다<br><hr>
 
+<img src="https://github.com/tealight03/2024React/assets/138011998/efd4ab30-dbe8-4eb7-b9d9-d840b98f93e7" width="750"><br>
+
 ```
 import React from 'react';
 
@@ -144,8 +146,10 @@ function Counter2(props) {
 export default Counter2;
 ```
 <b>Counter2.js</b><br>
-이 경우, setState가 비동기적으로 동작하기 때문에 1+2+3의 결과 6이 아니라 3이라는 값이 화면상에 렌더링된다<br>
+이 경우, setState가 비동기적으로 동작하기 때문에 1+2+3의 결과 6이 아니라 3이라는 값이 화면상에 렌더링된다<br><br>
 
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/59bff4aa-ba80-415c-9e71-31bff388225a" width="750"><br>
 ```
 import React from 'react';
 
@@ -170,5 +174,5 @@ export default Counter2;
 ```
 <b>수정된 Counter2.js</b><br>
 이렇게 콜백 함수를 사용하면 항상 최신의 값을 인자로 받아와서 처리하기 때문에<br>
-최신값을 받아서 처리할 수 있다<br><hr>
+항상 최신값을 받아서 렌더링을 처리할 수 있다<br><hr>
 
