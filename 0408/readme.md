@@ -176,3 +176,47 @@ export default Counter2;
 이렇게 콜백 함수를 사용하면 항상 최신의 값을 인자로 받아와서 처리하기 때문에<br>
 항상 최신값을 받아서 렌더링을 처리할 수 있다<br><hr>
 
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/c13b5f81-fee0-4e89-ad99-84d09f3eed25" width="150"><br>
+
+
+```
+import React, { Component } from 'react'
+
+export default class Member extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+            name: '홍길동',
+            age: 300,
+            job: '개발'
+        }
+    }
+    render() {
+        const {name, age, job} = this.state
+        return (
+            <div>
+                <div>name : {name}</div>
+                <div>age : {age}</div>
+                <div>job : {job}</div>
+            </div>
+        )
+    }
+}
+```
+<b>Member.js</b><br>
+
+```
+import './App.css';
+import Member from './Member';
+function App() {
+    return (
+        <div>
+            <Member />
+        </div>
+    );
+}
+export default App;
+```
+<b>Member.js</b><br>
+이렇게 State를 설정해서 사용할 수 있다<br><hr>
