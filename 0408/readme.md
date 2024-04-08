@@ -1,6 +1,6 @@
 # 2024.04.08 강의 실습 내용 정리(6주차)
 <img src="https://github.com/tealight03/2024React/assets/138011998/32d07079-8956-4334-b9ef-2e5b285235ee" width="700"><br>
--> 이렇게 프로젝트명에 대문자를 넣으면 제대로 실행이 안 된다<br><hr>
+이렇게 프로젝트명에 대문자를 넣으면 제대로 실행이 안 된다<br><hr>
 
 <img src="https://github.com/tealight03/2024React/assets/138011998/2ea4d210-2da1-4cce-bb19-0ad34d26e6fb" width="600"><br>
 ```
@@ -120,3 +120,55 @@ export default Counter;
 ```
 <b>수정된 Counter.js</b><br>
 이제 state를 이용하여 state가 변경되었을 때 올바르게 화면이 리렌더링되는 것을 확인할 수 있다<br><hr>
+
+```
+import React from 'react';
+
+function Counter2(props) {
+    const [number, setNumber] = useState(0)
+    return (
+        <div>
+            <h1>{number}</h1>
+            <button onClick={()=>{
+                setNumber(number + 1);
+                console.log(number)
+                setNumber(number + 2);
+                console.log(number)
+                setNumber(number + 3);
+                console.log(number)
+            }}>+3</button>
+        </div>
+    )
+}
+
+export default Counter2;
+```
+<b>Counter2.js</b><br>
+이 경우, setState가 비동기적으로 동작하기 때문에 1+2+3의 결과 6이 아니라 3이라는 값이 화면상에 렌더링된다<br>
+
+```
+import React from 'react';
+
+function Counter2(props) {
+    const [number, setNumber] = useState(0)
+    return (
+        <div>
+            <h1>{number}</h1>
+            <button onClick={()=>{
+                setNumber(number => number + 1);
+                console.log(number)
+                setNumber(number => number + 2);
+                console.log(number)
+                setNumber(number => number + 3);
+                console.log(number)
+            }}>+3</button>
+        </div>
+    )
+}
+
+export default Counter2;
+```
+<b>수정된 Counter2.js</b><br>
+이렇게 콜백 함수를 사용하면 항상 최신의 값을 인자로 받아와서 처리하기 때문에<br>
+최신값을 받아서 처리할 수 있다<br><hr>
+
