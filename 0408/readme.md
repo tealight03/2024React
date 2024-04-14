@@ -235,7 +235,269 @@ export default App;
     <li>2개 이상의 state를 가진 컴포넌트 1개 이상 포함</li>
     <li>1개 이상의 props와 state를 가진 컴포넌트 1개 이상 포함</li>
     <li>회원가입 페이지 포함</li>
-</ul>
+</ul><hr>
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/583b00b9-f626-44fd-9f8d-eaa80ccf8d8e" width="450"><br>
+<b>개인 웹사이트(펼쳐진 상태)</b><br>
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/8252bc79-237d-4895-b2f7-c1bcf9228ae8" width="450"><br>
+<b>개인 웹사이트(펼치기 전)</b><br>
+
+```
+import React, { useState, useEffect } from 'react';
+
+function Profile() {
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    return (
+        <div className="wrapper">
+            <div className="header">
+                <h1><b>My Profile</b></h1>
+                <Clock />
+            </div>
+            <MyInfo name="김다빈" department="경성대학교 소프트웨어학과" studentId="2022564004" birthday="2003년 7월 6일" interest="네트워크 보안, 컴퓨터 시스템" mbti="ISTJ" />
+            <br /><br />
+            <LearnedLanguages languages={["C Language", "C plus plus", "Java", "Python", "HTML", "CSS", "JavaScript", "SQL"]} />
+            <br />
+            <Platforms platforms={["Git & GitHub", "MySQL", "MariaDB", "Eclipse", "Visual Studio", "Visual Studio Code"]} />
+            <br />
+            <Certificates certificates={["TOEIC 795", "MS AI-900", "MS AZ-900", "한자능력검정시험 3급", "한능검 2급"]} />
+        </div>
+    );
+}
+
+function Clock() {
+    const [currentTime, setCurrentTime] = useState(new Date());
+
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            setCurrentTime(new Date());
+        }, 1000);
+
+        return () => clearInterval(intervalId);
+    }, []);
+
+    return (
+        <div className="clock">
+            <p><b>{currentTime.toLocaleTimeString()}</b></p>
+        </div>
+    );
+}
+
+function MyInfo({ name, department, studentId, birthday, interest, mbti }) {
+    const [isExpanded, setIsExpanded] = useState(false); // 새로운 상태 추가
+
+    const toggleExpand = () => {
+        setIsExpanded(!isExpanded);
+    };
+
+    return (
+        <section id="my_info">
+            <h2>My info</h2>
+            <img src="./gwangalli_beach.jpg" alt="myprofile" />
+            <button onClick={toggleExpand}>{isExpanded ? '접기' : '펼치기'}</button> {/* 펼치기/접기 버튼 */}
+            {isExpanded && (
+                <table>
+                    <tbody>
+                        <tr id="myname">
+                            <th>이름</th>
+                            <td>{name}</td>
+                        </tr>
+                        <tr>
+                            <th>소속</th>
+                            <td>{department}</td>
+                        </tr>
+                        <tr>
+                            <th>학번</th>
+                            <td>{studentId}</td>
+                        </tr>
+                        <tr>
+                            <th>생일</th>
+                            <td>{birthday}</td>
+                        </tr>
+                        <tr>
+                            <th>관심 전공 분야</th>
+                            <td>{interest}</td>
+                        </tr>
+                        <tr>
+                            <th>MBTI</th>
+                            <td>{mbti}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            )}
+        </section>
+    );
+}
+
+function LearnedLanguages({ languages }) {
+    const [selectedLanguage, setSelectedLanguage] = useState(null); // 선택된 언어를 저장하는 상태
+    const [languageLevel, setLanguageLevel] = useState(''); // 선택된 언어의 레벨을 저장하는 상태
+
+    const handleLanguageClick = (language) => {
+        setSelectedLanguage(language);
+    };
+
+    const handleLevelChange = (event) => {
+        setLanguageLevel(event.target.value);
+    };
+
+    return (
+        <section className="resume">
+            <h2>Learned Language</h2>
+            <p>선택된 언어: {selectedLanguage}</p>
+            <select value={languageLevel} onChange={handleLevelChange}>
+                <option value="">레벨 선택</option>
+                <option value="Beginner">초급</option>
+                <option value="Intermediate">중급</option>
+                <option value="Advanced">고급</option>
+            </select>
+            <ol>
+                {languages.map((language, index) => (
+                    <li key={index} onClick={() => handleLanguageClick(language)}>
+                        {language}
+                    </li>
+                ))}
+            </ol>
+        </section>
+    );
+}
+
+function Platforms({ platforms }) {
+    return (
+        <section className="resume">
+            <h2>Platforms</h2>
+            <ol>
+                {platforms.map((platform, index) => (
+                    <li key={index}>{platform}</li>
+                ))}
+            </ol>
+        </section>
+    );
+}
+
+function Certificates({ certificates }) {
+    return (
+        <section className="resume">
+            <h2>Certificate</h2>
+            <ol>
+                {certificates.map((certificate, index) => (
+                    <li key={index}>{certificate}</li>
+                ))}
+            </ol>
+        </section>
+    );
+}
+
+export default Profile;
+```
+<b>info.jsx</b><br>
+
+```
+.header {
+    display: flex;
+    flex-direction: row; /* 가로 방향으로 요소 배치 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.header h1 {
+    margin-right: 380px; /* My Profile과 Clock 사이의 간격을 조정 */
+}
+
+.clock {
+    font-size: 16px;
+}
+
+h2, h3 {
+    font-family: sans-serif;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+    text-transform: uppercase;
+    font-size: 22px;
+}
+
+.wrapper {
+    width: 85%;
+    margin: 20px auto;
+}
+
+#my_info h2 {
+    display: none;
+}
+
+#my_info img {
+    width: 125px;
+    height: 125px;
+    border-radius: 50px;
+    margin-right: 40px;
+} 
+
+table {
+    display: inline-block;
+    border-collapse: collapse;
+    border-spacing: 0;
+    vertical-align: top;
+}
+
+th {
+    text-align: left;
+    padding-right: 20px;
+}
+
+th, td {
+    font-size: 16px;
+}
+
+.resume ol {
+    list-style: none;
+    padding: 0;
+}
+
+.resume li {
+    display: inline-block;
+    background-color: #a4c0f4;
+    padding: 4px 10px;
+    border-radius: 32px;
+    margin: 0 8px 8px 0;
+    font-size: 14px;
+}
+
+.resume li::before {
+    content: "#";
+}
+```
+<b>style.css</b><br>
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import Info from './0401/info'
+import './0401/style.css';
+//import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+        <Info />
+    </React.StrictMode>
+);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
 
 <br><hr>
 <img src="https://github.com/tealight03/2024React/assets/138011998/8207c215-961a-4c92-a55e-a3a00d10b13d" width="300"><br>
