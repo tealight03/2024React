@@ -236,3 +236,123 @@ export default App;
     <li>1개 이상의 props와 state를 가진 컴포넌트 1개 이상 포함</li>
     <li>회원가입 페이지 포함</li>
 </ul>
+
+<br><hr>
+<img src="https://github.com/tealight03/2024React/assets/138011998/8207c215-961a-4c92-a55e-a3a00d10b13d" width="300"><br>
+<b>회원가입 페이지</b><br>
+```
+import React, { useState } from 'react';
+
+const SignupForm = () => {
+    const [formData, setFormData] = useState({
+        username: '',
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+    };
+
+    return (
+        <div className="signup-form-container">
+            <h2>회원가입</h2>
+            <form onSubmit={handleSubmit} className="signup-form">
+                <div className="form-group">
+                    <label htmlFor="username">사용자 이름:</label>
+                    <input type="text" id="username" name="username" value={formData.username} onChange={handleChange} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="email">이메일:</label>
+                    <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required />
+                </div>
+                <div className="form-group">
+                    <label htmlFor="password">비밀번호:</label>
+                    <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} required />
+                </div>
+                <button type="submit">가입하기</button>
+            </form>
+        </div>
+    );
+};
+
+export default SignupForm;
+```
+<b>SignUpForm.jsx</b><br>
+
+```
+.signup-form-container {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+```
+<b>style.css</b><br>
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import SignupForm from './0408/SignupForm';
+import './0408/style.css';
+
+//import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+        <SignupForm />
+    </React.StrictMode>
+);
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
