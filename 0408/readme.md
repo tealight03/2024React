@@ -26,7 +26,7 @@ export default function FPhotoText(props) {
     );
 }
 ```
-<b>FPhotoText.js</b><br>
+<b>FPhotoText.js</b>x<br>
 
 ```
 import './App.css';
@@ -75,7 +75,7 @@ const Counter = () => {
 };
 export default Counter;
 ```
-<b>Counter.js</b><br>
+<b>Counter.jsx</b><br>
 
 ```
 import './App.css';
@@ -122,7 +122,7 @@ const Counter = () => {
 };
 export default Counter;
 ```
-<b>수정된 Counter.js</b><br>
+<b>수정된 Counter.jsx</b><br>
 이제 state를 이용하여 state가 변경되었을 때 올바르게 화면이 리렌더링되는 것을 확인할 수 있다<br><hr>
 
 <h3><b>비동기 방식으로 동작하는 setState에 대해 올바른 처리가 되지 않은 경우</b></h3>
@@ -150,7 +150,7 @@ function Counter2(props) {
 
 export default Counter2;
 ```
-<b>Counter2.js</b><br>
+<b>Counter2.jsx</b><br>
 이 경우, setState가 비동기적으로 동작하기 때문에 1+2+3의 결과 6이 아니라 3이라는 값이 화면상에 렌더링된다<br><br>
 
 <h3><b>비동기 방식으로 동작하는 setState에 대해 올바른 처리가 되지 않은 경우</b></h3>
@@ -178,7 +178,7 @@ function Counter2(props) {
 
 export default Counter2;
 ```
-<b>수정된 Counter2.js</b><br>
+<b>수정된 Counter2.jsx</b><br>
 이렇게 콜백 함수를 사용하면 항상 최신의 값을 인자로 받아와서 처리하기 때문에<br>
 항상 최신값을 받아서 렌더링을 처리할 수 있다<br><hr>
 
@@ -209,7 +209,7 @@ export default class Member extends Component {
     }
 }
 ```
-<b>Member.js</b><br>
+<b>Member.jsx</b><br>
 
 ```
 import './App.css';
@@ -223,8 +223,940 @@ function App() {
 }
 export default App;
 ```
-<b>Member.js</b><br>
+<b>Member.jsx</b><br>
 이렇게 State를 설정해서 사용할 수 있다<br><hr>
+
+<h3><b>State 설정 및 사용</b></h3>
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/01d30762-b4c5-4e56-9f8f-468504a99866" width="250"><br>
+
+```
+import React, { Component } from "react";
+
+class Counter extends Component {
+    constructor(props) {
+        super(props);
+        // state 초기값 설정
+        this.state = {
+            count: 0,
+        };
+    }
+    
+    render() {
+        const { count } = this.state;
+        return (
+            <div>
+                <h2>현재 Count : {count}</h2>
+                <button
+                    onClick={() => {
+                        this.setState({ count: count + 1 });
+                    }}
+                >카운트 +1</button>
+            </div>
+        );
+    }
+}
+
+export default Counter;
+```
+<b>Counter.jsx</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Form from "./Form";
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <Counter />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+<h3><b>리액트의 이벤트 문법</b></h3>
+
+- JSX를 사용하여 문자열이 아닌 함수로 이벤트 핸들러 전달<br><br>
+<ul>
+    <li>
+        <img src="https://github.com/tealight03/2024React/assets/138011998/117103fb-25c5-47de-8d9a-793f2892942b" width="300"><br><br>
+    </li>
+    <li>
+        <img src="https://github.com/tealight03/2024React/assets/138011998/4a5e40b3-8000-41fc-8415-0c382fd0584b" width="300"><br>
+    </li>
+</ul>
+
+```
+import React, { useState } from "react";
+
+const Main = () => {
+    const [myName, setMyName] = useState("홍길동");
+    function changeName() {
+        setMyName(myName === "홍길동" ? "김길동" : "홍길동");
+    }
+    return (
+        <div>
+            <h1>안녕하세요. {myName} 입니다.</h1>
+            <button onClick={changeName}>Change</button>
+        </div>
+    );
+};
+export default Main;
+```
+<b>Main.jsx</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Main from "./Main.jsx"
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <Main />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+- 함수를 직접 선언하여 사용<br><br>
+
+```
+import React, { useState } from "react";
+
+const Main = () => {
+    const [myName, setMyName] = useState("홍길동");
+    return (
+        <div>
+            <h1>안녕하세요. {myName} 입니다.</h1>
+            <button
+                onClick={() => {
+                    setMyName(myName === "홍길동" ? "김길동" : "홍길동");
+                }}
+            >
+                Change
+            </button>
+        </div>
+    );
+};
+export default Main;
+```
+<b>Main.jsx</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Main from "./Main.jsx"
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <Main />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+<h3><b>State 설정 및 사용</b></h3>
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/f4765f38-78db-478b-8f70-67fa218c39b4" width="350"><br>
+
+```
+import { useState } from "react";
+
+const Area = () => {
+    const [size, setSize] = useState({ width: 200, height: 100 });
+    return (
+        <div>
+            <h1>
+                너비 : {size.width}, 높이 : {size.height}
+            </h1>
+            <button
+                onClick={() => {
+                    const copy = { ...size };
+                    copy.width += 20;
+                    setSize(copy);
+                }}
+            >
+                너비 증가
+            </button>
+            <button
+                onClick={() => {
+                    const copy = { ...size };
+                    copy.height += 10;
+                    setSize(copy);
+                }}
+            >
+                높이 증가
+            </button>
+        </div>
+    );
+};
+export default Area;
+```
+<b>Area.jsx</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Area from "./Area.jsx"
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <Area />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+<h3><b>경고창 띄우기</b></h3>
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/3f193aa6-8bfe-4bcd-9ea9-5d1cab555119" width="550"><br>
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // 컴포넌트를 정의합니다.
+            class Hello extends React.Component {
+                render() {
+                    // 이벤트를 정의합니다.
+                    const clickHandler = (e) => {
+                        window.alert("안녕하세요.");
+                    };
+                    // 클릭 이벤트를 지정합니다.
+                    return <div onClick={clickHandler}>Click Me</div>;
+                }
+            }
+            // 컴포넌트를 사용합니다.
+            ReactDOM.render(<Hello />, document.getElementById("root"));
+        </script>
+    </body>
+</html>
+```
+<b>default.html</b><br>
+
+<h3><b>클릭했을 때 클래스의 메소드 호출</b></h3>
+<img src="https://github.com/tealight03/2024React/assets/138011998/6808fe0e-74da-43b8-897b-2c247ec366b6" width="550"><br>
+
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // 컴포넌트를 정의합니다.
+            class Hello extends React.Component {
+                constructor(props) {
+                    super(props);
+                    // 이벤트 핸들러의 this를 설정합니다. --- (※1)
+                    this.clickHandler = this.clickHandler.bind(this);
+                }
+                clickHandler(e) {
+                    const name = this.props.name;
+                    window.alert(`${name}님 안녕하세요.`);
+                }
+                render() {
+                    // 클릭 이벤트를 지정합니다. --- (※2)
+                    return <div onClick={this.clickHandler}>Click Me</div>;
+                }
+            }
+            // 컴포넌트를 사용합니다.
+            ReactDOM.render(
+                <Hello name="홍길동" />,
+                document.getElementById("root")
+            );
+        </script>
+    </body>
+</html>
+```
+<b>default.html</b><br>
+
+<h3><b>간단한 체크박스 구현하기</b></h3>
+
+<img src="https://github.com/tealight03/2024React/assets/138011998/1073f4b0-2c34-4f1a-8dad-27d95f504cda" width="150"><br>
+```
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+        <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.38/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // 상태를 가진 컴포넌트를 정의합니다.
+            class CBox extends React.Component {
+                // 생성자
+                constructor(props) {
+                    super(props);
+                    // 상태를 초기화합니다.
+                    this.state = { checked: false };
+                }
+                render() {
+                    // 체크되지 않았을 때의 상태
+                    let mark = "□";
+                    let bstyle = { fontWeight: "normal" };
+                    // 체크돼 있는지 확인합니다.
+                    if (this.state.checked) {
+                        mark = "■";
+                        bstyle = { fontWeight: "bold" };
+                    }
+                    // 클릭했을 때의 이벤트를 지정합니다.
+                    const clickHandler = (e) => {
+                        const newValue = !this.state.checked;
+                        this.setState({ checked: newValue });
+                    };
+                    // 렌더링할 내용을 반환합니다.
+                    return (
+                        <div onClick={clickHandler} style={bstyle}>
+                            {mark} {this.props.label}
+                        </div>
+                    );
+                }
+            }
+            // 리액트로 DOM의 내용을 변경합니다.
+            const dom = (
+                <div>
+                    <CBox label="Apple" />
+                    <CBox label="Banana" />
+                    <CBox label="Orange" />
+                    <CBox label="Mango" />
+                </div>
+            );
+            ReactDOM.render(dom, document.getElementById("root"));
+        </script>
+    </body>
+</html>
+```
+<b>default.html</b><br>
+
+<h3><b>라이프 사이클 확인하기</b></h3>
+<img src="https://github.com/tealight03/2024React/assets/138011998/30ca4e2b-7215-4224-b7ea-03ddf7869802" width="600"><br><br>
+
+```
+import React from "react";
+
+const styles = {
+    wrapper: {
+        margin: 8,
+        padding: 8,
+        display: "flex",
+        flexDirection: "row",
+        border: "1px solid grey",
+        borderRadius: 16,
+    },
+    messageText: {
+        color: "black",
+        fontSize: 16,
+    },
+};
+class Notification extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+    componentDidMount() {
+        console.log(`${this.props.id} componentDidMount() called.`);
+    }
+    componentDidUpdate() {
+        console.log(`${this.props.id} componentDidUpdate() called.`);
+    }
+    componentWillUnmount() {
+        console.log(`${this.props.id} componentWillUnmount() called.`);
+    }
+    render() {
+        return (
+            <div style={styles.wrapper}>
+                <span style={styles.messageText}>{this.props.message}</span>
+            </div>
+        );
+    }
+}
+export default Notification;
+```
+<b>Notification.jsx</b><br>
+
+```
+import React from "react";
+import Notification from "./Notification";
+
+const reservedNotifications = [
+    {
+        id: 1,
+        message: "안녕하세요, 오늘 일정을 알려드립니다.",
+    },
+    {
+        id: 2,
+        message: "점심식사 시간입니다.",
+    },
+    {
+        id: 3,
+        message: "이제 곧 미팅이 시작됩니다.",
+    },
+];
+var timer;
+class NotificationList extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            notifications: [],
+        };
+    }
+    componentDidMount() {
+        const { notifications } = this.state;
+        timer = setInterval(() => {
+            if (notifications.length < reservedNotifications.length) {
+                const index = notifications.length;
+                notifications.push(reservedNotifications[index]);
+                this.setState({
+                    notifications: notifications,
+                });
+            } else {
+                this.setState({ notifications: [] });
+                clearInterval(timer);
+            }
+        }, 1000);
+    }
+    componentWillUnmount() {
+        if (timer) {
+            clearInterval(timer);
+        }
+    }
+    render() {
+        return (
+            <div>
+                {this.state.notifications.map((notification) => {
+                    return (
+                        <Notification
+                            key={notification.id}
+                            id={notification.id}
+                            message={notification.message}
+                        />
+                    );
+                })}
+            </div>
+        );
+    }
+}
+export default NotificationList;
+```
+<b>NotificationList.jsx</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+
+class Test extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { hello: "World!" };
+    }
+    componentDidMount() {
+        console.log("componentDidMount()");
+    }
+    changeState() {
+        this.setState({ hello: "Geek!" });
+    }
+    render() {
+        return (
+            <div>
+                <h1>
+                    GeeksForGeeks.org, Hello
+                    {this.state.hello}
+                </h1>
+                <h2>
+                    <a onClick={this.changeState.bind(this)}>Press Here!</a>
+                </h2>
+            </div>
+        );
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("shouldComponentUpdate()");
+        return true;
+    }
+    componentDidUpdate() {
+        console.log("componentDidUpdate()");
+    }
+}
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Test />);
+```
+<b>Test.jsx</b><br>
+
+```
+import React, { Component } from "react";
+class App extends Component {
+    // 마운트
+    constructor(props) {
+        super(props);
+        console.log("constructor");
+    }
+    componentWillMount() {
+        console.log("componentWillMount");
+    }
+    componentDidMount() {
+        console.log("componentDidMount");
+    }
+    // 변경
+    componentWillReceiveProps(nextProps) {
+        console.log("componentWillReceiveProps");
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("shouldComponentUpdate");
+        return true;
+    }
+    componentWillUpdate() {
+        console.log("componentWillUpdate");
+    }
+    componentDidUpdate() {
+        console.log("componentDidUpdate");
+    }
+    // 언마운트
+    componentWillUnmount() {
+        console.log("componentWillUnmount");
+    }
+    render() {
+        console.log("render");
+        const setStateHandler = (e) => {
+            console.log("* call setState()");
+            this.setState({ r: Math.random() });
+        };
+        return (
+            <div>
+                <button onClick={setStateHandler}>setState</button>
+            </div>
+        );
+    }
+}
+export default App;
+```
+<b>App.js</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import NotificationList from "./NotificationList";
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <NotificationList />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+<h3><b>스톱워치 만들기</b></h3>
+<img src="https://github.com/tealight03/2024React/assets/138011998/8f298e0f-42ae-4728-9507-cfb9334d5475" width="300"><br>
+
+```
+import React, { Component } from "react";
+import "./Stopwatch.css";
+
+// Stopwatch 컴포넌트를 정의합니다.
+class Stopwatch extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            // 초깃값을 설정합니다.
+            isLive: false,
+            curTime: 0,
+            startTime: 0,
+        };
+        this.timerId = 0;
+    }
+    // 마운트했을 때
+    componentWillMount() {
+        this.timerId = setInterval((e) => {
+            this.tick();
+        }, 1000);
+    }
+    // 언마운트했을 때
+    componentWillUnmount() {
+        clearInterval(this.timerId);
+    }
+    // 매 초 실행됩니다.
+    tick() {
+        if (this.state.isLive) {
+            const v = new Date().getTime();
+            this.setState({ curTime: v });
+        }
+    }
+    // 시작/중지 버튼을 클릭했을 때
+    clickHandler(e) {
+        // 중지할 때
+        if (this.state.isLive) {
+            this.setState({ isLive: false });
+            return;
+        }
+        // 시작할 때
+        const v = new Date().getTime();
+        this.setState({
+            curTime: v,
+            startTime: v,
+            isLive: true,
+        });
+    }
+    // 출력할 시계를 생성합니다.
+    getDisp() {
+        const s = this.state;
+        const delta = s.curTime - s.startTime;
+        const t = Math.floor(delta / 1000);
+        const ss = t % 60;
+        const m = Math.floor(t / 60);
+        const mm = m % 60;
+        const hh = Math.floor(mm / 60);
+        const z = (num) => {
+            const s = "00" + String(num);
+            return s.substr(s.length - 2, 2);
+        };
+        return (
+            <span className="disp">
+                {z(hh)}:{z(mm)}:{z(ss)}
+            </span>
+        );
+    } // 화면 렌더링
+    render() {
+        let label = "START";
+        if (this.state.isLive) {
+            label = "STOP";
+        }
+        const disp = this.getDisp();
+        const fclick = (e) => this.clickHandler(e);
+        return (
+            <div className="Stopwatch">
+                <div>{disp}</div>
+                <button onClick={fclick}>{label}</button>
+            </div>
+        );
+    }
+}
+export default Stopwatch;
+```
+<b>Stopwatch.jsx</b><br>
+
+```
+.Stopwatch {
+    text-align: center;
+}
+
+.disp {
+    font-size: 70px;
+}
+
+button {
+    font-size: 24px;
+    width: 280px;
+}
+```
+<b>Stopwatch.css</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import Stopwatch from "./Stopwatch.jsx";
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <Stopwatch />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+<h3><b>간단한 입력 양식 만들기</b></h3>
+<img src="https://github.com/tealight03/2024React/assets/138011998/2e923394-3096-4c69-b3d3-3d7e1ef4f323" width="600"><br>
+
+```
+import React from "react";
+
+// 입력 양식 컴포넌트입니다.
+export class SimpleForm extends React.Component {
+    constructor(props) {
+        super(props);
+        // 상태를 초기화합니다.
+        this.state = { value: "" };
+    }
+    // 값이 변경됐을 때
+    doChange(e) {
+        const newValue = e.target.value;
+        this.setState({ value: newValue });
+    }
+    // 전송 버튼을 눌렀을 때
+    doSubmit(e) {
+        window.alert("전송: " + this.state.value);
+        e.preventDefault();
+    }
+    // 화면 렌더링
+    render() {
+        // 이벤트를 메서드에 바인딩합니다.
+        const doSubmit = (e) => this.doSubmit(e);
+        const doChange = (e) => this.doChange(e);
+        return (
+            <form onSubmit={doSubmit}>
+                <input
+                    type="text"
+                    value={this.state.value}
+                    onChange={doChange}
+                />
+                <input type="submit" value="전송" />
+            </form>
+        );
+    }
+}
+```
+<b>SimpleForm.jsx</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { SimpleForm } from "./SimpleForm.jsx";
+import reportWebVitals from "./reportWebVitals";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <SimpleForm />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+<h3><b>숫자만 입력받는 텍스트박스 만들기</b></h3>
+<img src="https://github.com/tealight03/2024React/assets/138011998/3ea87fab-fba4-4680-b609-6e939a72f75a" width="600"><br>
+
+```
+import React, { Component } from "react";
+
+// 숫자 입력 컴포넌트
+export default class NumberForm extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { value: "" };
+    }
+    // 값이 변경됐을 때
+    doChange(e) {
+        const curValue = e.target.value;
+        // 숫자 이외의 값을 제거합니다.
+        const newValue = curValue.replace(/[^0-9]/g, "");
+        this.setState({ value: newValue });
+    }
+    // 전송 버튼을 눌렀을 때
+    doSubmit(e) {
+        window.alert("전송: " + this.state.value);
+        e.preventDefault();
+    }
+    // 화면 렌더링
+    render() {
+        // 이벤트를 메서드에 바인딩합니다.
+        const doSubmit = (e) => this.doSubmit(e);
+        const doChange = (e) => this.doChange(e);
+        return (
+            <form onSubmit={doSubmit}>
+                <input
+                    type="text"
+                    value={this.state.value}
+                    onChange={doChange}
+                />
+                <input type="submit" value="전송" />
+            </form>
+        );
+    }
+}
+```
+<b>NumberForm.jsx</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import NumberForm from "./NumberForm.jsx";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <NumberForm />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
+
+<h3><b>여러 개의 입력 항목을 가진 입력 양식 만들기</b></h3>
+<img src="https://github.com/tealight03/2024React/assets/138011998/e5e044e9-0a45-41c6-9dbb-efa874284859" width="500"><br>
+
+```
+import React, { Component } from "react";
+
+// 여러 개의 입력 항목을 가진 컴포넌트
+export default class MultiForm extends Component {
+    constructor(props) {
+        super(props);
+        // 입력 양식의 초깃값을 설정합니다.
+        this.state = {
+            name: "홍길동",
+            age: 300,
+            hobby: "개발",
+        };
+    }
+    // 값이 변경됐을 때
+    doChange(e) {
+        const userValue = e.target.value;
+        const key = e.target.name;
+        this.setState({ [key]: userValue });
+    }
+    // 전송 버튼을 눌렀을 때
+    doSubmit(e) {
+        e.preventDefault();
+        const j = JSON.stringify(this.state);
+        window.alert(j);
+    }
+    // 화면 렌더링
+    render() {
+        // 이벤트를 메서드에 바인딩합니다.
+        const doSubmit = (e) => this.doSubmit(e);
+        const doChange = (e) => this.doChange(e);
+        return (
+            <form onSubmit={doSubmit}>
+                <div>
+                    <label>
+                        이름: <br />
+                        <input
+                            name="name"
+                            type="text"
+                            value={this.state.name}
+                            onChange={doChange}
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        나이: <br />
+                        <input
+                            name="age"
+                            type="number"
+                            value={this.state.age}
+                            onChange={doChange}
+                        />
+                    </label>
+                </div>
+                <div>
+                    <label>
+                        취미: <br />
+                        <input
+                            name="hobby"
+                            type="text"
+                            value={this.state.hobby}
+                            onChange={doChange}
+                        />
+                    </label>
+                </div>
+                <input type="submit" value="전송" />
+            </form>
+        );
+    }
+}
+```
+<b>MultiForm.jsx</b><br>
+
+```
+.multiForm {
+    width: 400px;
+    text-align: left;
+    margin-left: auto;
+}
+
+.multiForm p {
+    margin: 4px
+    ; padding: 4px;
+}
+```
+<b>multiForm.css</b><br>
+
+```
+import React from "react";
+import ReactDOM from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import MultiForm from "./MultiForm.jsx";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+    <React.StrictMode>
+        <MultiForm />
+    </React.StrictMode>
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+<b>index.js</b><br>
 
 # 웹프로그래밍 6주차 과제(04/08)
 <h3><b>과제 설명</b></h3>
