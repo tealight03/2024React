@@ -187,6 +187,7 @@ reportWebVitals();
 <hr>
 
 <h3><b>Counter 예시(1)</b></h3>
+state와 props만 사용해서 만든 웹사이<br><br>
 
 <b>App.jsx</b><br>
 
